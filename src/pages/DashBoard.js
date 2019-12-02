@@ -118,12 +118,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function DashBoard() {
 
-    console.log('mainListItems', mainListItems);
-console.log('secondaryListItems', secondaryListItems);
-console.log('Chart', Chart);
-console.log('Deposits', Deposits);
-console.log('Orders', Orders);
-
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
