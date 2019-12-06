@@ -14,7 +14,6 @@ function createData(id, date, name, shipTo, paymentMethod, amount) {
 }
 
 
-
 const useStyles = makeStyles(theme => ({
   seeMore: {
     marginTop: theme.spacing(3),
@@ -22,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Orders() {
-  const [rows, setrows] = useState([]);
+const [rows, setrows] = useState([]);
   const [loading, setloading] = useState(false);
 
   const tmp=[]; 
@@ -40,9 +39,7 @@ export default function Orders() {
       setrows(tmp);
       setloading(true);
   }).catch( response => { console.log(response) } );
-  
-  }
-
+}
   return (
     <React.Fragment>
       <Title>Recent Orders</Title>
@@ -69,7 +66,7 @@ export default function Orders() {
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color="primary" href="/main/OrderBoard">
+        <Link color="primary" to="/OrderBoard">
           See more orders
         </Link>
       </div>
