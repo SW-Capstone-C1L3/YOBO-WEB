@@ -14,6 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import { max } from 'rxjs-compat/operator/max';
 import { maxWidth } from '@material-ui/system';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import logo from "../../yobo_logo.png"
 
 
 function createData(product_name, timestamp, user_id, total_price, user_address, length, Did) {
@@ -37,7 +38,16 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
     width: 500,
   },
-
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
 }));
 
 export default function Detail(props) {
@@ -111,7 +121,7 @@ export default function Detail(props) {
               <Grid container spacing={2}>
               <Grid item>
             <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" src={props.data.product_image} />
+              <img className={classes.img} alt="complex" src={logo} />
             </ButtonBase>
           </Grid>
                 <Grid item xs={12} sm container>
