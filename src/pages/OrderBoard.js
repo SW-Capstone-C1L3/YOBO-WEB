@@ -143,7 +143,7 @@ export default function OrderBoard() {
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             OrderBoard
-          </Typography>
+          </Typography> 
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
               <NotificationsIcon />

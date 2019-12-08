@@ -8,10 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import axios from 'axios';
-// Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
-}
+import ComplexGrid from './ComplexGrid'
+
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -30,11 +29,11 @@ const [rows, setrows] = useState([]);
 
   if(loading!=true){
     axios.get('http://localhost:8081/yobo/transaction/getByCid', { 
-    params:{ Cid:"5de0b8b42efe395a40b8ee70",
+    params:{ Cid:"5de0b8b42efe395a40b8ee71",
   pageNum:0}
     }).then( response => { 
       for(var i=0; i<response.data.length; i++) {
-                     tmp.push(createData(1,response.data[i]["timestamp"], response.data[i]["user_id"], response.data[i]["total_price"], response.data[i]["user_address"], response.data[i]["products"].length));                   
+        tmp.push(response.data[i]);
       } 
       setrows(tmp);
       setloading(true);
@@ -46,30 +45,18 @@ const [rows, setrows] = useState([]);
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>rrr</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell> </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody> 
           {rows.map(row => (
-            <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
-            </TableRow>
+           
+          <ComplexGrid data={row}></ComplexGrid>
+            
           ))}
         </TableBody>
       </Table>
-      <div className={classes.seeMore}>
-        <Link color="primary" to="/OrderBoard">
-          See more orders
-        </Link>
-      </div>
+   
     </React.Fragment>
   );
   

@@ -9,8 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import axios from 'axios';
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+function createData(id, date, name, shipTo, paymentMethod, amount,Did) {
+  return { id, date, name, shipTo, paymentMethod, amount ,Did};
 }
 
 
@@ -31,15 +31,15 @@ export default function Orders() {
 
   if(loading!=true){
     axios.get('http://localhost:8081/yobo/transaction/getByCid', { 
-    params:{ Cid:"5de0b8b42efe395a40b8ee70",
+    params:{ Cid:"5de0b8b42efe395a40b8ee71",
   pageNum:0}
     }).then( response => { 
       for(var i=0; i<response.data.length; i++) {
-                     tmp.push(createData(1,response.data[i]["timestamp"], response.data[i]["user_id"], response.data[i]["total_price"], response.data[i]["user_address"], response.data[i]["products"].length));                   
+                     tmp.push(createData(1,response.data[i]["timestamp"], response.data[i]["user_id"], response.data[i]["total_price"], response.data[i]["user_address"], response.data[i]["products"].length,response.data[i]["_id"]));                   
       } 
       setrows(tmp);
       setloading(true);
-  }).catch( response => { console.log(response) } );
+ }).catch( response => { console.log(response) } );
   
   }
 
@@ -57,6 +57,7 @@ export default function Orders() {
           </TableRow>
         </TableHead>
         <TableBody>
+          
           {rows.map(row => (
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>

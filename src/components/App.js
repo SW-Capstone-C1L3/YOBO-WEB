@@ -10,7 +10,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact={true} component={Main} />
           <Route path="/auth/:kind" exact={true} component={Auth} />
-          <Route path="/main/dashboard" exact={true} component={DashBoard} />npm
+          <Route path="/main/dashboard" exact={true} component={DashBoard} />
           <Route path="/main/OrderBoard" exact={true} component={OrderBoard} />
           <Route component={NotFound} />
         </Switch>
