@@ -6,11 +6,10 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Title from './../common/Title';
+import Title from '../common/Title';
 import axios from 'axios';
 import ComplexGrid from './ComplexGrid'
-
-
+import Button from '@material-ui/core/Button';
 
 
 const useStyles = makeStyles(theme => ({
@@ -19,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Orders() {
+export default function Product() {
 const [rows, setrows] = useState([]);
   const [loading, setloading] = useState(false);
 
@@ -28,8 +27,8 @@ const [rows, setrows] = useState([]);
   
 
   if(loading!=true){
-    axios.get('http://localhost:8081/yobo/transaction/getByCid', { 
-    params:{ Cid:"5de0b8b42efe395a40b8ee70",
+    axios.get('http://localhost:8081/yobo/product/searchbyPid/', { 
+    params:{ PID:"5de0b8b42efe395a40b8ee70",
   pageNum:0}
     }).then( response => { 
       for(var i=0; i<response.data.length; i++) {
@@ -39,9 +38,11 @@ const [rows, setrows] = useState([]);
       setloading(true);
   }).catch( response => { console.log(response) } );
 }
+
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>My Products</Title>
+   
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -50,15 +51,14 @@ const [rows, setrows] = useState([]);
         </TableHead>
         <TableBody> 
           {rows.map(row => (
-           
           <ComplexGrid data={row}></ComplexGrid>
-            
           ))}
         </TableBody>
       </Table>
-   
+      <Button variant="outlined" color="primary" >
+        물품 등록
+      </Button>
     </React.Fragment>
   );
-  
 
 }

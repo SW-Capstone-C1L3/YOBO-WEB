@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { max } from 'rxjs-compat/operator/max';
 import { maxWidth } from '@material-ui/system';
+import ButtonBase from '@material-ui/core/ButtonBase';
 
 
 function createData(product_name, timestamp, user_id, total_price, user_address, length, Did) {
@@ -103,83 +104,37 @@ export default function Detail(props) {
         자세히
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" className={classes.box} >
-        <DialogTitle id="form-dialog-title">주문정보</DialogTitle>
-        {props.data.products.map(product => (
+        <DialogTitle id="form-dialog-title">물품 정보</DialogTitle>
+        
           <div className={classes.Groot} >
             <Paper className={classes.Gpaper}>
               <Grid container spacing={2}>
+              <Grid item>
+            <ButtonBase className={classes.image}>
+              <img className={classes.img} alt="complex" src={props.data.product_image} />
+            </ButtonBase>
+          </Grid>
                 <Grid item xs={12} sm container>
                   <Grid item xs container direction="column" spacing={2}>
                     <Grid item xs>
                       <Typography variant="body2" gutterBottom>
-                        {product.product_name}
+                        {props.data.product_name}
                       </Typography>
                       <Typography variant="body2" gutterBottom>
-                        수량:{product.product_qty}
+                        수량:{props.data.product_qty}{props.data.product_unit}
                       </Typography>
                     </Grid>
                   </Grid>
                   <Grid item xs container direction="column" spacing={5} alignItems="flex-end">
                     <Grid item>
-                      <Typography variant="subtitle1">가격:{product.price}</Typography>
+                      <Typography variant="subtitle1">가격:{props.data.product_price}</Typography>
                     </Grid>
                   </Grid>
                 </Grid>
               </Grid>
             </Paper>
           </div>
-        ))}
-        <Grid item xs container direction="column" spacing={5} alignItems="flex-end">
-          <Grid item>
-            <Typography variant="subtitle1">총계:{props.data.total_price}</Typography>
-          </Grid>
-        </Grid>
-        <Grid item xs container direction="row" spacing={2} className={classes.Gpaper}>
-          <Typography variant="subtitle1" gutterBottom>
-            주소:
-          </Typography>
-          <Typography variant="subtitle1" gutterBottom>
-            {props.data.user_address}
-          </Typography>
-        </Grid>
-        <Grid item xs container direction="row" spacing={2} className={classes.Gpaper}>
-          <Typography variant="subtitle1" gutterBottom>
-            전화번호:
-          </Typography>
-          <Typography variant="subtitle1" gutterBottom>
-            {props.data.user_phone_num}
-          </Typography>
-        </Grid>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="invoiceCompany"
-            label={invoiceCompany()}
-            type="invoiceCompany"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="invoiceNumber"
-            label={invoiceNumber()}
-            type="invoiceNumber"
-            fullWidth
-          />
-        </DialogContent>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="transaction_status"
-            label={transaction_status()}
-            type="transaction_status"
-            fullWidth
-          />
-        </DialogContent>
+       
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             취소

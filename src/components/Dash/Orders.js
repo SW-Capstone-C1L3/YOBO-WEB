@@ -6,7 +6,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Title from './Title';
+import Title from './../common/Title';
 import axios from 'axios';
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount,Did) {
@@ -30,8 +30,8 @@ export default function Orders() {
   
 
   if(loading!=true){
-    axios.get('http://localhost:8081/yobo/transaction/getByCid', { 
-    params:{ Cid:"5de0b8b42efe395a40b8ee71",
+    axios.get('http://localhost:8081/yobo/transaction/getByCid/', { 
+    params:{ Cid:"5de0b8b42efe395a40b8ee70",
   pageNum:0}
     }).then( response => { 
       for(var i=0; i<response.data.length; i++) {

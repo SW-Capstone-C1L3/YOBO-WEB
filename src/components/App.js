@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter,Switch, Route } from "react-router-dom";
-import { Main, Auth, NotFound,DashBoard,OrderBoard} from "../pages";
+import { Main, Auth, NotFound,DashBoard,OrderBoard,ProductBoard} from "../pages";
 
 class App extends Component {
   render() {
@@ -12,6 +12,8 @@ class App extends Component {
           <Route path="/auth/:kind" exact={true} component={Auth} />
           <Route path="/main/dashboard" exact={true} component={DashBoard} />
           <Route path="/main/OrderBoard" exact={true} component={OrderBoard} />
+          <Route path="/main/ProductBoard" exact={true} component={ProductBoard} />
+          
           <Route component={NotFound} />
         </Switch>
         </BrowserRouter>

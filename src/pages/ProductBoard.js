@@ -18,7 +18,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from '../components/common/listItems';
-import Orders from '../components/Orders/Orders';
+
+import Product from '../components/Product/Product';
 
 function Copyright() {
   return (
@@ -114,7 +115,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function OrderBoard() {
+export default function ProductBoard() {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -141,7 +142,7 @@ export default function OrderBoard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            OrderBoard
+            ProductBoard
           </Typography> 
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -174,7 +175,7 @@ export default function OrderBoard() {
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Orders />
+                <Product />
               </Paper>
             </Grid>
           </Grid>
