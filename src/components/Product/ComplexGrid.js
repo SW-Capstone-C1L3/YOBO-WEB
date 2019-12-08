@@ -36,9 +36,9 @@ export default function ComplexGrid(props) {
         <Grid container spacing={2}>
         <Grid item>
             <ButtonBase className={classes.image}>
-              <img className={classes.img} alt="complex" src={'http://localhost:8081/yobo/product/getImage/'+props.data.product_image}/>
+              <img className={classes.img} alt="complex" src={'http://45.119.146.82:8081/yobo/product/getImage/?filePath='+props.data.product_image}/>
             </ButtonBase>
-          </Grid>
+          </Grid> 
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>

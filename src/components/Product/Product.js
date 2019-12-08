@@ -27,7 +27,7 @@ const [rows, setrows] = useState([]);
   
 
   if(loading!=true){
-    axios.get('http://localhost:8081/yobo/product/searchbyPid/', { 
+    axios.get('http://45.119.146.82:8081/yobo/product/searchbyPid/', { 
     params:{ PID:"5de0b8b42efe395a40b8ee70",
   pageNum:0}
     }).then( response => { 

@@ -72,7 +72,7 @@ export default function Detail(props) {
     params.append('invoice_company', document.getElementById('invoiceCompany').value);
     params.append('invoice_number', document.getElementById('invoiceNumber').value);
     params.append('transaction_status', document.getElementById('transaction_status').value);
-    axios.post('http://localhost:8081/yobo/transaction/modifystatus'
+    axios.post('http://45.119.146.82:8081/yobo/transaction/modifystatus'
       ,params)
       .then((Resopnse) => {
         if(Resopnse.data==1){
@@ -121,7 +121,7 @@ export default function Detail(props) {
               <Grid container spacing={2}>
               <Grid item>
             <ButtonBase className={classes.image}>
-            <img className={classes.img} alt="complex" src={'http://localhost:8081/yobo/product/getImage/?filePath='+props.data.product_image}/>
+            <img className={classes.img} alt="complex" src={'http://45.119.146.82:8081/yobo/product/getImage/?filePath='+props.data.product_image}/>
             </ButtonBase>
           </Grid>
                 <Grid item xs={12} sm container>

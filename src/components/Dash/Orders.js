@@ -30,7 +30,7 @@ export default function Orders() {
   
 
   if(loading!=true){
-    axios.get('http://localhost:8081/yobo/transaction/getByCid/', { 
+    axios.get('http://45.119.146.82:8081/yobo/transaction/getByCid/', { 
     params:{ Cid:"5de0b8b42efe395a40b8ee70",
   pageNum:0}
     }).then( response => { 
