@@ -123,7 +123,6 @@ export default function AddProduct(props) {
                                     <div>
                                         <form>
                                             <input type="file" onChange={handleChange} />
-                                            <button type="submit">Upload Image</button>
                                         </form>                             
                                            </div>
 
@@ -131,56 +130,63 @@ export default function AddProduct(props) {
                                         <TextField
                                             id="company_name"
                                             label="company_name"
-                                            defaultValue="null"
+                                            defaultValue=""
                                             variant="outlined"
+                                            fullWidth
                                         />
                                     </Grid>
                                     <Grid item xs>
                                         <TextField
                                             id="product_category"
                                             label="product_category"
-                                            defaultValue="null"
+                                            defaultValue=""
                                             variant="outlined"
+                                            fullWidth
                                         />
                                     </Grid>
                                     <Grid item xs>
                                         <TextField
                                             id="product_description"
                                             label="product_description"
-                                            defaultValue="null"
+                                            defaultValue=""
                                             variant="outlined"
+                                            fullWidth
                                         />
                                     </Grid>
                                     <Grid item xs>
                                         <TextField
                                             id="product_name"
                                             label="product_name"
-                                            defaultValue="null"
+                                            defaultValue=""
                                             variant="outlined"
+                                            fullWidth
                                         />
                                     </Grid>
                                     <Grid item xs>
                                         <TextField
                                             id="product_price"
                                             label="product_price"
-                                            defaultValue="null"
+                                            defaultValue=""
                                             variant="outlined"
+                                            fullWidth
                                         />
                                     </Grid>
                                     <Grid item xs>
                                         <TextField
                                             id="product_qty"
                                             label="product_qty"
-                                            defaultValue="null"
+                                            defaultValue=""
                                             variant="outlined"
+                                            fullWidth
                                         />
                                     </Grid>
                                     <Grid item xs>
                                         <TextField
                                             id="product_unit"
                                             label="product_unit"
-                                            defaultValue="null"
+                                            defaultValue=""
                                             variant="outlined"
+                                            fullWidth
                                         />
                                     </Grid>
                                 </Grid>

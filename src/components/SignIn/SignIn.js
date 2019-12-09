@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import React from "react";
+import NaverLogin from 'react-naver-login';
+import naverLogo from "../../naver_login.PNG"
 
 function Copyright() {
   return (
@@ -48,12 +50,19 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  }, img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '10%',
+    maxHeight: '10%',
   },
 }));
 
 export default function SignIn() {
   const classes = useStyles();
-
+  if(window.sessionStorage.getItem('email')!=null){
+    window.location.assign("/main/dashboard")
+  }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -64,6 +73,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
+
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
@@ -98,8 +108,15 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
+
             Sign In
           </Button>
+          <NaverLogin color="green" type='3' height='60'
+            clientId="l4xNltkeJouI07153frC"
+            callbackUrl="http://localhost:3000/Auth"
+            render={(props) => <div onClick={props.onClick} ><img width="100%" height="100%" src={naverLogo} /></div>}
+            onSuccess={(naverUser) => { window.sessionStorage.setItem('email', naverUser.email) }}
+            onFailure={() => console.error()} />
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">

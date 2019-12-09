@@ -125,7 +125,9 @@ export default function OrderBoard() {
     setOpen(false);
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
+  if(window.sessionStorage.getItem('email')==null){
+    window.location.assign("/Auth")
+  }
   return (
     <div className={classes.root}>
       <CssBaseline />

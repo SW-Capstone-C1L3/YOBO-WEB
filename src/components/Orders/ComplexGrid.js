@@ -42,7 +42,7 @@ export default function ComplexGrid(props) {
                   {props.data.user_name}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  {props.data.products[0].product_name}외  {props.data.products.length - 1}건.......
+                  {props.data.products[0].product_name}포함  {props.data.products.length}건.......
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
                   {props.data.user_address}

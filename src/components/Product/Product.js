@@ -42,7 +42,8 @@ const [rows, setrows] = useState([]);
   return (
     <React.Fragment>
       <Title>My Products</Title>
-
+      <AddProduct data={rows} >
+      </AddProduct>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -56,8 +57,7 @@ const [rows, setrows] = useState([]);
         </TableBody>
       </Table>
   
-      <AddProduct data={rows} >
-      </AddProduct>
+     
     </React.Fragment>
   );
 

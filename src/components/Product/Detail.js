@@ -69,43 +69,18 @@ export default function Detail(props) {
   const handlemodify = () => {
     var params = new URLSearchParams();
     params.append('Did', props.data._id);
-    params.append('invoice_company', document.getElementById('invoiceCompany').value);
-    params.append('invoice_number', document.getElementById('invoiceNumber').value);
-    params.append('transaction_status', document.getElementById('transaction_status').value);
-    axios.post('http://45.119.146.82:8081/yobo/transaction/modifystatus'
+    axios.post('http://localhost:8081/yobo/product/delete'
       ,params)
       .then((Resopnse) => {
         if(Resopnse.data==1){
-          document.setElementById('invoiceCompany').value=document.getElementById('invoiceCompany').value;
-          document.setElementById('invoiceNumber').value=document.getElementById('invoiceNumber').value;
-          document.setElementById('transaction_status').value=document.getElementById('transaction_status').value;
-        }
+          }
 
       }).catch((ex)=>{
         console.log(ex);
 
       })
   };
-  const invoiceCompany = () => {
-    if (props.data.invoice_company == null) {
-      return '배송회사';
-    } else {
-      return props.data.invoice_company;
-    }
-  }
-  const invoiceNumber = () => {
-    if (props.data.invoice_number == null) {
-      return '운송장';
-    } else {
-      return props.data.invoice_number;
-    }
-  }
-  const transaction_status = () => {
-    if (props.data.transaction_status == null) {
-      return '주문확인중';
-    } else {
-      return props.data.transaction_status;
-    }
+
   }
 
   return (
@@ -132,6 +107,9 @@ export default function Detail(props) {
                       </Typography>
                       <Typography variant="body2" gutterBottom>
                         수량:{props.data.product_qty}{props.data.product_unit}
+                      </Typography>
+                      <Typography variant="body2" gutterBottom>
+                        설명:{props.data.product_description}
                       </Typography>
                     </Grid>
                   </Grid>

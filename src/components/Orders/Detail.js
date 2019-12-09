@@ -43,7 +43,7 @@ export default function Detail(props) {
   const [open, setOpen] = React.useState(false);
 
   const [data, setdata] = useState([]);
-  const [loading, setloading] = useState(false);
+  const [loading2, setloading2] = useState(false);
   const tmp = [];
   const classes = useStyles();
 
@@ -61,13 +61,13 @@ export default function Detail(props) {
     params.append('invoice_company', document.getElementById('invoiceCompany').value);
     params.append('invoice_number', document.getElementById('invoiceNumber').value);
     params.append('transaction_status', document.getElementById('transaction_status').value);
-    axios.post('http://45.119.146.82:8081/yobo/transaction/modifystatus'
+    axios.post('http://localhost:8081/yobo/transaction/modifystatus'
       ,params)
       .then((Resopnse) => {
         if(Resopnse.data==1){
-          document.setElementById('invoiceCompany').value=document.getElementById('invoiceCompany').value;
-          document.setElementById('invoiceNumber').value=document.getElementById('invoiceNumber').value;
-          document.setElementById('transaction_status').value=document.getElementById('transaction_status').value;
+           document.setElementById('invoiceCompany').value=document.getElementById('invoiceCompany').value;
+           document.setElementById('invoiceNumber').value=document.getElementById('invoiceNumber').value;
+           document.setElementById('transaction_status').value=document.getElementById('transaction_status').value;
         }
 
       }).catch((ex)=>{
@@ -99,7 +99,7 @@ export default function Detail(props) {
 
   return (
     <div >
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="outlined" color="primary"  onClick={handleClickOpen}>
         자세히
       </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" className={classes.box} >
@@ -149,13 +149,19 @@ export default function Detail(props) {
           <Typography variant="subtitle1" gutterBottom>
             {props.data.user_phone_num}
           </Typography>
+
+
         </Grid>
-        <DialogContent>
+        <Grid item xs container direction="row" spacing={10} className={classes.Gpaper}>
+         
+          <DialogContent>
+    
           <TextField
             autoFocus
             margin="dense"
             id="invoiceCompany"
-            label={invoiceCompany()}
+            label="배송회사"
+            defaultValue={invoiceCompany()}
             type="invoiceCompany"
             fullWidth
           />
@@ -165,7 +171,9 @@ export default function Detail(props) {
             autoFocus
             margin="dense"
             id="invoiceNumber"
-            label={invoiceNumber()}
+            label="송장번호"
+            defaultValue={invoiceNumber()}
+
             type="invoiceNumber"
             fullWidth
           />
@@ -175,11 +183,14 @@ export default function Detail(props) {
             autoFocus
             margin="dense"
             id="transaction_status"
-            label={transaction_status()}
+            label="배송상태"
+            defaultValue={transaction_status()}
             type="transaction_status"
             fullWidth
           />
         </DialogContent>
+
+        </Grid>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             취소
