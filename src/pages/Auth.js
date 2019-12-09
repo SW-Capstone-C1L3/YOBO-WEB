@@ -7,7 +7,7 @@ const Auth = () => {
   clientId="l4xNltkeJouI07153frC"
   callbackUrl="http://localhost:3000/Auth"
   render={(props) => <div onClick={props.onClick}>Naver Login</div>}
-  onSuccess={(naverUser) => console.log(naverUser)}
+  onSuccess={(naverUser) => window.location.assign("/main/dashboard") }
   onFailure={() => console.error()}
 />
 };
