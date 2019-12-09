@@ -61,7 +61,7 @@ export default function Detail(props) {
     params.append('invoice_company', document.getElementById('invoiceCompany').value);
     params.append('invoice_number', document.getElementById('invoiceNumber').value);
     params.append('transaction_status', document.getElementById('transaction_status').value);
-    axios.post('http://localhost:8081/yobo/transaction/modifystatus'
+    axios.post('http://45.119.146.82:8081/yobo/transaction/modifystatus'
       ,params)
       .then((Resopnse) => {
         if(Resopnse.data==1){

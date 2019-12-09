@@ -91,7 +91,7 @@ export default function AddProduct(props) {
              formData.append('product_qty',document.getElementById('product_qty').value);
              formData.append('product_unit',document.getElementById('product_unit').value);
              formData.append('product_description',document.getElementById('product_description').value);
-             formData.append('provided_company_id',"5de0b8b42efe395a40b8ee70");
+             formData.append('provided_company_id',window.sessionStorage.getItem("Did"));
              formData.append('company_name',document.getElementById('company_name').value);
 
         axios.post('http://45.119.146.82:8081/yobo/product/createProduct', formData, {

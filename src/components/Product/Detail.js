@@ -69,7 +69,7 @@ export default function Detail(props) {
   const handlemodify = () => {
     var params = new URLSearchParams();
     params.append('Did', props.data._id);
-     axios.post('http://localhost:8081/yobo/product/delete/'
+     axios.post('http://45.119.146.82:8081/yobo/product/delete/'
       ,params)
       .then((Resopnse) => {
         if(Resopnse.data==1){

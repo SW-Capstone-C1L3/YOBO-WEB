@@ -29,7 +29,7 @@ const [rows, setrows] = useState([]);
 
   if(loading!=true){
     axios.get('http://45.119.146.82:8081/yobo/transaction/getByCid', { 
-    params:{ Cid:"5de0b8b42efe395a40b8ee70",
+    params:{ Cid: window.sessionStorage.getItem("Did"),
   pageNum:0}
     }).then( response => { 
       for(var i=0; i<response.data.length; i++) {

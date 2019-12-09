@@ -14,6 +14,7 @@ import Container from '@material-ui/core/Container';
 import React from "react";
 import NaverLogin from 'react-naver-login';
 import naverLogo from "../../naver_login.PNG"
+import axios from 'axios';
 
 function Copyright() {
   return (
@@ -113,9 +114,19 @@ export default function SignIn() {
           </Button>
           <NaverLogin color="green" type='3' height='60'
             clientId="l4xNltkeJouI07153frC"
-            callbackUrl="http://localhost:3000/Auth"
+            callbackUrl="http://45.119.146.82:3000/Auth"
             render={(props) => <div onClick={props.onClick} ><img width="100%" height="100%" src={naverLogo} /></div>}
-            onSuccess={(naverUser) => { window.sessionStorage.setItem('email', naverUser.email) }}
+            onSuccess={(naverUser) => { 
+
+              axios.get('http://45.119.146.82:8081/company/naverlog', { 
+                params:{ email:naverUser.email}
+                }).then( response => { 
+                  window.sessionStorage.setItem('email', naverUser.email)
+                  window.sessionStorage.setItem('Did', response.data["_id"])
+                 
+              }).catch( response => { console.log(response) } );
+              
+               }}
             onFailure={() => console.error()} />
           <Grid container>
             <Grid item xs>
