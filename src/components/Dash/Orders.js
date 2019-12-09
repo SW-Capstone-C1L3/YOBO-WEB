@@ -35,7 +35,7 @@ export default function Orders() {
   pageNum:0}
     }).then( response => { 
       for(var i=0; i<response.data.length; i++) {
-                     tmp.push(createData(1,response.data[i]["timestamp"], response.data[i]["user_id"], response.data[i]["total_price"], response.data[i]["user_address"], response.data[i]["products"].length,response.data[i]["_id"]));                   
+                     tmp.push(createData(1,response.data[i]["timestamp"], response.data[i]["user_name"], response.data[i]["total_price"], response.data[i]["user_address"], response.data[i]["products"].length,response.data[i]["_id"]));                   
       } 
       setrows(tmp);
       setloading(true);
@@ -49,11 +49,11 @@ export default function Orders() {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>rrr</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>결제 일시</TableCell>
+            <TableCell>이름</TableCell>
+            <TableCell>배송지</TableCell>
+            <TableCell>구매 금액</TableCell>
+            <TableCell align="right">수량</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -62,8 +62,8 @@ export default function Orders() {
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
               <TableCell>{row.paymentMethod}</TableCell>
+              <TableCell>{row.shipTo}</TableCell>
               <TableCell align="right">{row.amount}</TableCell>
             </TableRow>
           ))}

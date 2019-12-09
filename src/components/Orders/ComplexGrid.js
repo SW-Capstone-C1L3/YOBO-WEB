@@ -39,7 +39,7 @@ export default function ComplexGrid(props) {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                  {props.data.user_id}
+                  {props.data.user_name}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                   {props.data.products[0].product_name}외  {props.data.products.length - 1}건.......

@@ -10,7 +10,7 @@ import Title from '../common/Title';
 import axios from 'axios';
 import ComplexGrid from './ComplexGrid'
 import Button from '@material-ui/core/Button';
-
+import AddProduct from './AddProduct';
 
 const useStyles = makeStyles(theme => ({
   seeMore: {
@@ -42,7 +42,7 @@ const [rows, setrows] = useState([]);
   return (
     <React.Fragment>
       <Title>My Products</Title>
-   
+
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -55,9 +55,9 @@ const [rows, setrows] = useState([]);
           ))}
         </TableBody>
       </Table>
-      <Button variant="outlined" color="primary" >
-        물품 등록
-      </Button>
+  
+      <AddProduct data={rows} >
+      </AddProduct>
     </React.Fragment>
   );
 
