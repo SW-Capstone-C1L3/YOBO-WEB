@@ -132,8 +132,8 @@ export default function DashBoard() {
     setOpen(false);
   };
   const handleLogout=()=>{
-    window.sessionStorage.setItem('email', null)
-    window.sessionStorage.setItem('Did', null);
+    window.sessionStorage.removeItem('email')
+    window.sessionStorage.removeItem('Did');
     console.log(window.sessionStorage.getItem('email', null));
     window.location.assign("/Auth")
   };
