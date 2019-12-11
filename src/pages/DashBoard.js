@@ -146,10 +146,8 @@ export default function DashBoard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>
-          <IconButton button color="inherit" onClick={()=>window.sessionStorage.setItem('email',null),window.sessionStorage.setItem('Did',null) } >
-            <Badge badgeContent={4} color="secondary">
+          <IconButton button color="inherit" onClick={()=>window.sessionStorage.setItem('email',null)} >
               <ExitToAppOutlinedIcon />
-            </Badge>
           </IconButton>
         </Toolbar>
       </AppBar>
