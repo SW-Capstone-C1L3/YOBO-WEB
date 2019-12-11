@@ -119,10 +119,12 @@ export default function DashBoard() {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-
+  console.log(window.sessionStorage.getItem('email'));
   if(window.sessionStorage.getItem('email')==null){
     window.location.assign("/Auth")
-  }
+  }else{
+   console.log(window.sessionStorage.getItem('email'));
+}	
   const handleDrawerOpen = () => {
     setOpen(true);
   };
