@@ -128,6 +128,8 @@ export default function DashBoard() {
   const handleLogout=()=>{
     window.sessionStorage.setItem('email', null)
     window.sessionStorage.setItem('Did', null);
+    console.log(    window.sessionStorage.getItem('email', null)
+    )
     window.location.assign("/Auth")
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
