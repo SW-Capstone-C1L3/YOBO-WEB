@@ -21,7 +21,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        YOBO
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -61,9 +61,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const checkLog=function log(){
   if(window.sessionStorage.getItem('email')!=null){
     window.location.assign("/main/dashboard")
   }
+}
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -109,7 +111,6 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-
             Sign In
           </Button>
           <NaverLogin color="green" type='3' height='60'
@@ -123,7 +124,7 @@ export default function SignIn() {
                 }).then( response => { 
                   window.sessionStorage.setItem('email', naverUser.email)
                   window.sessionStorage.setItem('Did', response.data["_id"])
-                 
+                  checkLog();
               }).catch( response => { console.log(response) } );
               
                }}

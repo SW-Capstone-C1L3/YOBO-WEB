@@ -18,7 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from '../components/common/listItems';
-
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import Product from '../components/Product/Product';
 
 function Copyright() {
@@ -26,7 +26,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      YOBO
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -148,7 +148,7 @@ export default function ProductBoard() {
           </Typography> 
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
+              <ExitToAppOutlinedIcon />
             </Badge>
           </IconButton>
         </Toolbar>

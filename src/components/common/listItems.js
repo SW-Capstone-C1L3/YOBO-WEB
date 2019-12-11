@@ -27,7 +27,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Orders" />
     </ListItem>
-    <ListItem button button onClick={()=>window.location.assign("/main/ProductBoard")}>
+    <ListItem button  onClick={()=>window.location.assign("/main/ProductBoard")}>
       <ListItemIcon>
       <LayersIcon />
       </ListItemIcon>

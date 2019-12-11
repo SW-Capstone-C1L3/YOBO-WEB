@@ -21,14 +21,13 @@ import { mainListItems, secondaryListItems } from '../components/common/listItem
 import Chart from '../components/Dash/Chart';
 import Deposits from '../components/Dash/Deposits';
 import Orders from '../components/Dash/Orders';
-
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
+      YOBO      </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -147,9 +146,9 @@ export default function DashBoard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>
-          <IconButton color="inherit">
+          <IconButton button color="inherit" onClick={()=>window.sessionStorage.setItem('email',null),window.sessionStorage.setItem('Did',null) } >
             <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
+              <ExitToAppOutlinedIcon />
             </Badge>
           </IconButton>
         </Toolbar>
