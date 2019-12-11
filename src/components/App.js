@@ -3,6 +3,7 @@ import { BrowserRouter,Switch, Route } from "react-router-dom";
 import { Main, Auth, NotFound,DashBoard,OrderBoard,ProductBoard} from "../pages";
 
 class App extends Component {
+  
   render() {
     return (
       <div>

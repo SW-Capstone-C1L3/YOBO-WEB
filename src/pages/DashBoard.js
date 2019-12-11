@@ -119,6 +119,10 @@ export default function DashBoard() {
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+
+  if(window.sessionStorage.getItem('email')==null){
+    window.location.assign("/Auth")
+  }
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -128,14 +132,11 @@ export default function DashBoard() {
   const handleLogout=()=>{
     window.sessionStorage.setItem('email', null)
     window.sessionStorage.setItem('Did', null);
-    console.log(    window.sessionStorage.getItem('email', null)
-    )
+    console.log(window.sessionStorage.getItem('email', null));
     window.location.assign("/Auth")
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  if(window.sessionStorage.getItem('email')==null){
-    window.location.assign("/Auth")
-  }
+
   return (
     <div className={classes.root}>
       <CssBaseline />
