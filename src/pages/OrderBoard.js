@@ -125,6 +125,12 @@ export default function OrderBoard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const handleLogout=()=>{
+    window.sessionStorage.removeItem('email')
+    window.sessionStorage.removeItem('Did');
+    console.log(window.sessionStorage.getItem('email', null));
+    window.location.assign("/Auth")
+  };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   if(window.sessionStorage.getItem('email')==null){
     window.location.assign("/Auth")
@@ -146,10 +152,8 @@ export default function OrderBoard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             OrderBoard
           </Typography> 
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+          <IconButton color="inherit" onClick={handleLogout} >
               <ExitToAppOutlinedIcon />
-            </Badge>
           </IconButton>
         </Toolbar>
       </AppBar>
